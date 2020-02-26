@@ -1,14 +1,131 @@
-/* 
-header background   003399
-nav background      6698cb
-card border         6698cb
-title column bg     b1d0f0
-content column bg   d5e8fb
-titlebar bg         ffcc99
-thumb bg            ff9933
-comment bg          f9d6b4 
-*/
+
+/* GLOBAL */
+
+:root{
+  --color-header-bg: #003399;
+  --color-trim: #6698cb;
+  --color-left-col-drk: #b1d0f0;
+  --color-left-col-lgt: #d5e8fb;
+  --color-right-col-title: #ffcc99;
+  --color-right-col-drk: #ff9933;
+  --color-right-col-lgt: #f9d6b4;
+  --color-text-lgt-blu: #336699;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h2{
+  font-size: .8rem;
+  padding-left: 5px;
+}
+
+/* BODY */
 
 body{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  background-color: var(--color-left-col-lgt);
 }
+
+.grid-container{
+  background-color: white;
+}
+
+/* HEADER */
+
+header{
+  background-color: var(--color-header-bg);
+}
+header nav{
+  background-color: var(--color-trim);
+}
+
+header nav ul{
+  list-style-type: none;
+  font-size: .7rem;
+  height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header nav ul li{
+  color: white;
+  margin: 0 2px 0 2px;
+}
+
+header nav ul span{
+  color: black;
+}
+
+/* COLUMNS */
+
+.col{
+  padding: 10px;
+}
+
+/* SECTIONS */
+section{
+  margin: 10px;
+}
+
+section h2{
+  color:white;
+  border-bottom: 2px ridge var(--color-trim);
+}
+
+/* LEFT COLUMN */
+
+.grid-col-left{
+}
+
+.grid-col-left section{
+  border: 2px ridge var(--color-trim);
+}
+
+.grid-col-left section h2{
+  background-color: #6698cb;
+}
+
+#bio{
+  border: 0px;
+}
+
+#contact{
+  
+}
+
+#interests .content{
+  font-size: 0.8rem;
+}
+
+#interests .content-title{
+  background-color: var(--color-left-col-drk);
+  color: var(--color-text-lgt-blu);
+  padding-left: 5px;
+  padding-top: 2px;;
+  font-weight: 600;
+}
+
+#interests .content-area{
+  background-color: var(--color-left-col-lgt);
+}
+
+/* RIGHT COLUMN */
+
+.grid-col-right{
+}
+
+
+
