@@ -10,13 +10,15 @@
   --color-right-col-drk: #ff9933;
   --color-right-col-lgt: #f9d6b4;
   --color-text-lgt-blu: #336699;
+  --color-text-drk-orn: #FF6600;
+
+  font-size: 11px;
 }
 
 
 * {
   margin: 0;
   padding: 0;
-
 }
 
 *,
@@ -25,21 +27,26 @@
   box-sizing: border-box;
 }
 
-h2{
-  font-size: .8rem;
-  padding-left: 5px;
+html{
+
 }
-
-/* BODY */
-
 body{
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   background-color: var(--color-left-col-lgt);
 }
 
+
+h1{
+  padding-left: 5px;
+}
+h2{
+  padding-left: 5px;
+}
+
 .grid-container{
   background-color: white;
+  width: 980px;
 }
 
 /* HEADER */
@@ -53,7 +60,6 @@ header nav{
 
 header nav ul{
   list-style-type: none;
-  font-size: .7rem;
   height:100%;
   display: flex;
   justify-content: center;
@@ -63,6 +69,8 @@ header nav ul{
 header nav ul li{
   color: white;
   margin: 0 2px 0 2px;
+  padding: 6px 2px;
+
 }
 
 header nav ul span{
@@ -80,14 +88,15 @@ section{
   margin: 10px;
 }
 
-section h2{
-  color:white;
-  border-bottom: 2px ridge var(--color-trim);
+.content div{
+  padding: 3px;
 }
 
 /* LEFT COLUMN */
 
-.grid-col-left{
+.grid-col-left section h2{
+ color:white;
+ border-bottom: 2px ridge var(--color-trim);
 }
 
 .grid-col-left section{
@@ -102,29 +111,75 @@ section h2{
   border: 0px;
 }
 
-#contact{
-  
-}
-
-#interests .content{
-  font-size: 0.8rem;
-}
-
-#interests .content-title{
+.content-title{
   background-color: var(--color-left-col-drk);
   color: var(--color-text-lgt-blu);
   padding-left: 5px;
   padding-top: 2px;;
   font-weight: 600;
+  margin: 2px;
+
 }
 
-#interests .content-area{
+.content-title p{
+ color: initial;
+ font-weight: initial;
+}
+
+.content-area{
   background-color: var(--color-left-col-lgt);
+  margin: 2px;
+
 }
 
 /* RIGHT COLUMN */
 
-.grid-col-right{
+.grid-col-right section h2{
+  color:var(--color-text-drk-orn);
+  background-color: var(--color-right-col-lgt);
+}
+
+.grid-col-right .content{
+  padding: 5px;
+}
+
+#network {
+  margin: 20px auto;
+  border: 2px solid black;
+}
+
+#network p{
+  font-size: 2rem;
+  text-align: center;
+  padding: 25px 0;
+}
+
+
+
+#blogs{
+}
+
+#comments{
+  margin: 10px 5px;
+}
+.comment{
+  height: 100px;
+}
+
+.comment-thumb{
+  background-color: var(--color-right-col-drk);
+  border: 2px ridge white;
+}
+
+.comment-text{
+  background-color: var(--color-right-col-lgt);
+  border: 2px ridge white;
+  border-left: none;
+  border-bottom: none;
+}
+
+.comment-text:last-of-type{
+  border-bottom: 2px ridge white;
 }
 
 

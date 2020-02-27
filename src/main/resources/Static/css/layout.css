@@ -1,8 +1,7 @@
 .grid-container{
   display: grid;
-  width: 45%;
   grid-template-columns: 2fr 3fr;
-  grid-template-rows: 10rem 1fr;
+  grid-template-rows: 150px auto;
   margin: 0 auto;
 }
 
@@ -28,6 +27,13 @@ header nav ul{
   grid-row: 2;
 }
 
+#bio .content{
+  display: grid;
+  padding: 2px;
+  grid-template-columns: 1fr 1fr;
+ }
+ 
+
 #contact .content{
   display: grid;
   padding: 2px;
@@ -39,13 +45,22 @@ header nav ul{
   display:grid;
   grid-template-columns: 2fr 3fr;
   grid-template-rows: auto;
+}
+
+
+#details .content{
+  display:grid;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: auto;
   margin: 2px;
 }
 
-#interests .content div{
+#schools .content{
+  display:grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: auto;
   margin: 2px;
 }
-
 
 
 /* RIGHT COLUMN */
@@ -53,4 +68,20 @@ header nav ul{
 .grid-col-right{
   grid-column: 2;
   grid-row: 2;
+}
+
+#friends .content{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+#comments{
+  display:flex;
+  flex-direction: column;
+}
+
+.comment{
+  display: grid;
+  grid-template-columns: 1fr 5fr;
 }
