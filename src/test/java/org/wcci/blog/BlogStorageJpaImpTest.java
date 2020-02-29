@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class BlogStorageJpaImpTest {
     private BlogRepository blogRepo;
@@ -28,5 +27,11 @@ public class BlogStorageJpaImpTest {
         when(blogRepo.findById(1L)).thenReturn(Optional.of(testBlog));
         Blog retrievedBlog = underTest.findBlogById(1L);
         assertThat(retrievedBlog).isEqualTo(testBlog);
+    }
+
+    @Test
+    public void shouldStoreBlog(){
+        underTest.store(testBlog);
+        verify(blogRepo).save(testBlog);
     }
 }

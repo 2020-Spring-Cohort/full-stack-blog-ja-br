@@ -1,10 +1,20 @@
 package org.wcci.blog;
 
-public class BlogStorageJpaImp extends BlogStorage {
+public class BlogStorageJpaImp implements BlogStorage {
     private BlogRepository blogRepo;
 
-    Blog findBlogById(long id) {
+    public BlogStorageJpaImp(BlogRepository blogRepo){
+        this.blogRepo = blogRepo;
+    }
+
+    @Override
+    public Blog findBlogById(long id) {
         return blogRepo.findById(id).get();
+    }
+
+    @Override
+    public void store(Blog blogToStore){
+        blogRepo.save(blogToStore);
     }
 
 }
