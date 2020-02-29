@@ -1,4 +1,7 @@
-package org.wcci.blog;
+package org.wcci.blog.storage;
+
+import org.wcci.blog.models.Blog;
+import org.wcci.blog.storage.repositories.BlogRepository;
 
 public class BlogStorageJpaImp implements BlogStorage {
     private BlogRepository blogRepo;

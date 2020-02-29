@@ -2,6 +2,12 @@ package org.wcci.blog;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.wcci.blog.models.Blog;
+import org.wcci.blog.models.Genre;
+import org.wcci.blog.models.Tag;
+import org.wcci.blog.storage.repositories.BlogRepository;
+import org.wcci.blog.storage.BlogStorage;
+import org.wcci.blog.storage.BlogStorageJpaImp;
 
 import java.util.Optional;
 
@@ -18,12 +24,12 @@ public class BlogStorageJpaImpTest {
         blogRepo = mock(BlogRepository.class);
         underTest = new BlogStorageJpaImp(blogRepo);
         Genre testGenre = new Genre("Test Genre");
-        Tag testTag = new Tag();
+        Tag testTag = new Tag("Test Tag");
         testBlog = new Blog();
     }
 
     @Test
-    public void shouldFindBlogByTitle(){
+    public void shouldFindBlogById(){
         when(blogRepo.findById(1L)).thenReturn(Optional.of(testBlog));
         Blog retrievedBlog = underTest.findBlogById(1L);
         assertThat(retrievedBlog).isEqualTo(testBlog);
