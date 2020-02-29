@@ -1,4 +1,5 @@
 package org.wcci.blog;
 
-public class BlogStorage {
+public interface BlogStorage {
+    Blog findBlogById(long id);
 }
