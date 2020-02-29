@@ -1,10 +1,10 @@
-package org.wcci.blog;
+package org.wcci.blog.storage;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.wcci.blog.models.Blog;
 import org.wcci.blog.models.Genre;
-import org.wcci.blog.models.Tag;
+//import org.wcci.blog.models.Tag;
 import org.wcci.blog.storage.repositories.BlogRepository;
 import org.wcci.blog.storage.BlogStorage;
 import org.wcci.blog.storage.BlogStorageJpaImp;
@@ -24,7 +24,6 @@ public class BlogStorageJpaImpTest {
         blogRepo = mock(BlogRepository.class);
         underTest = new BlogStorageJpaImp(blogRepo);
         Genre testGenre = new Genre("Test Genre");
-        Tag testTag = new Tag("Test Tag");
         testBlog = new Blog();
     }
 

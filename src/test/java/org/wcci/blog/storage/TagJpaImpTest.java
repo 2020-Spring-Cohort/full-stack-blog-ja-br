@@ -1,11 +1,9 @@
-package org.wcci.blog;
+package org.wcci.blog.storage;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.wcci.blog.models.Tag;
 import org.wcci.blog.storage.repositories.TagRepository;
-import org.wcci.blog.storage.TagStorage;
-import org.wcci.blog.storage.TagStorageJpaImp;
 
 import java.util.Collections;
 import java.util.Optional;
@@ -34,8 +32,8 @@ public class TagJpaImpTest {
 
     @Test
     void shouldFindTagByName(){
-        when(tagRepo.findTagByName("Test Tag")).thenReturn(Optional.of(testTag));
-        Tag retrievedTag = underTest.findTagByName("Test Tag");
+        when(tagRepo.findTagByTagName("Test Tag")).thenReturn(Optional.of(testTag));
+        Tag retrievedTag = underTest.findTagByTagName("Test Tag");
         assertThat(retrievedTag).isEqualTo(testTag);
 
     }

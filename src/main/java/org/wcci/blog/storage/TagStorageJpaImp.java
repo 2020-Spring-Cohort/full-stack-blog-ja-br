@@ -1,10 +1,11 @@
 package org.wcci.blog.storage;
 
+import org.springframework.stereotype.Service;
 import org.wcci.blog.models.Tag;
 import org.wcci.blog.storage.repositories.TagRepository;
-
 import java.util.Collection;
 
+@Service
 public class TagStorageJpaImp implements TagStorage {
     private TagRepository tagRepo;
 
@@ -17,8 +18,8 @@ public class TagStorageJpaImp implements TagStorage {
         tagRepo.save(tagToStore);
     }
     @Override
-    public Tag findTagByName(String nameToFind){
-        return tagRepo.findTagByName(nameToFind).get();
+    public Tag findTagByTagName(String nameToFind){
+        return tagRepo.findTagByTagName(nameToFind).get();
     }
 
     @Override

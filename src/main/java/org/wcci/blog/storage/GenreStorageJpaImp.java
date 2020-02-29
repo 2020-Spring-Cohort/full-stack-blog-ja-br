@@ -1,11 +1,12 @@
 package org.wcci.blog.storage;
 
+import org.springframework.stereotype.Service;
 import org.wcci.blog.GenreNotFoundException;
 import org.wcci.blog.models.Genre;
 import org.wcci.blog.storage.repositories.GenreRepository;
 
 import java.util.Collection;
-
+@Service
 public class GenreStorageJpaImp implements GenreStorage{
 
     private GenreRepository genreRepo;

@@ -1,4 +1,4 @@
-package org.wcci.blog;
+package org.wcci.blog.storage;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
