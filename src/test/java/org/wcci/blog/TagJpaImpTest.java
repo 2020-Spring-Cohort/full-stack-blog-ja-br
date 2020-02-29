@@ -7,6 +7,7 @@ import org.wcci.blog.storage.repositories.TagRepository;
 import org.wcci.blog.storage.TagStorage;
 import org.wcci.blog.storage.TagStorageJpaImp;
 
+import java.util.Collections;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -37,5 +38,13 @@ public class TagJpaImpTest {
         Tag retrievedTag = underTest.findTagByName("Test Tag");
         assertThat(retrievedTag).isEqualTo(testTag);
 
+    }
+
+    @Test
+    void shouldFindAllTags(){
+        when(tagRepo.findAll()).thenReturn(Collections.singletonList(testTag));
+        underTest.store(testTag);
+        verify(tagRepo).save(testTag);
+        assertThat(underTest.findAllTags()).contains(testTag);
     }
 }
