@@ -12,7 +12,7 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
-public class GenreJpaImpTest {
+public class GenreStorageJpaImpTest {
     private GenreRepository genreRepo;
     private GenreStorageJpaImp underTest;
     private Genre testGenre;
@@ -37,8 +37,7 @@ public class GenreJpaImpTest {
 
     @Test
     public void shouldFindGenreByName(){
-        Optional<Genre> testGenre1Optional = Optional.of(testGenre);
-        when(genreRepo.findGenreByName("Test Genre")).thenReturn(testGenre1Optional);
+        when(genreRepo.findGenreByName("Test Genre")).thenReturn(Optional.of(testGenre));
         Genre retrievedGenre = underTest.findGenreByName("Test Genre");
         assertThat(retrievedGenre).isEqualTo(testGenre);
     }

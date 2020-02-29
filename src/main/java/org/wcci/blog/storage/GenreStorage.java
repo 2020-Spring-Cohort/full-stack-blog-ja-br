@@ -9,5 +9,5 @@ public interface GenreStorage {
 
     Collection<Genre> findAllGenres();
 
-    Genre findGenreByName(String genreName);
+    Genre findGenreByName(String genreNameToFind);
 }

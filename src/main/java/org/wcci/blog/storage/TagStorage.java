@@ -7,7 +7,7 @@ import java.util.Collection;
 public interface TagStorage {
     void store(Tag testTag);
 
-    Tag findTagByName(String name);
+    Tag findTagByName(String tagNameToFind);
 
     Collection<Tag> findAllTags();
 }

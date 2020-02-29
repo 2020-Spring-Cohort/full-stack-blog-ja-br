@@ -9,7 +9,6 @@ import java.util.Collection;
 public class GenreStorageJpaImp implements GenreStorage{
 
     private GenreRepository genreRepo;
-    private GenreRepository genreRepository;
 
 
     public GenreStorageJpaImp(GenreRepository genreRepo) {
@@ -28,15 +27,15 @@ public class GenreStorageJpaImp implements GenreStorage{
 
     @Override
     public Genre findGenreByName(String genreToFind){
-//        Genre retrievedGenre;
-//        try{
-//            retrievedGenre = genreRepository.findGenreByName(genreName).get();
-//        } catch (Exception e){
-//            throw new GenreNotFoundException(e.getMessage());
-//        }
-//        return retrievedGenre;
+        Genre retrievedGenre;
+        try{
+            retrievedGenre = genreRepo.findGenreByName(genreToFind).get();
+        } catch (Exception e){
+            throw new GenreNotFoundException(e.getMessage());
+        }
+        return retrievedGenre;
 
-        return genreRepository.findGenreByName(genreToFind).get();
+//        return genreRepo.findGenreByName(genreToFind).get();
     }
 
 }
