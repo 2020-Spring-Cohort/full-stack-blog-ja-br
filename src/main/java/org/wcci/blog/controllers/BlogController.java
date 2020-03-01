@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.wcci.blog.models.Blog;
+import org.wcci.blog.models.BlogPost;
 import org.wcci.blog.models.Tag;
 import org.wcci.blog.storage.BlogStorage;
 import org.wcci.blog.storage.repositories.TagRepository;
@@ -28,8 +28,8 @@ public class BlogController {
 
     @RequestMapping("/blogs/{id}")
     public String displayBlog(@PathVariable Long id, Model model){
-        Blog retrievedBlog = blogStorage.findBlogById(id);
-        model.addAttribute("blog", retrievedBlog);
+        BlogPost retrievedBlogPost = blogStorage.findBlogById(id);
+        model.addAttribute("blog", retrievedBlogPost);
         return "blogs-view";
     }
 
@@ -43,9 +43,9 @@ public class BlogController {
         } else {
             tagToAddToBlog = tagToAddOpt.get();
         }
-        Blog blogToAddTagTo = blogStorage.findBlogById(id);
-        blogToAddTagTo.addTag(tagToAddToBlog);
-        blogStorage.store(blogToAddTagTo);
+        BlogPost blogPostToAddTagTo = blogStorage.findBlogById(id);
+        blogPostToAddTagTo.addTag(tagToAddToBlog);
+        blogStorage.store(blogPostToAddTagTo);
         return "redirect:/blogs/" + id;
     }
 }

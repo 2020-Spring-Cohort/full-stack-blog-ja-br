@@ -18,7 +18,7 @@ public class Genre {
     private String name;
 
     @OneToMany(mappedBy = "genre")
-    private Collection<Blog> blogs;
+    private Collection<BlogPost> blogPosts;
 
     public Genre(){};
 
@@ -34,8 +34,8 @@ public class Genre {
         return name;
     }
 
-    public Collection<Blog> getBlogs() {
-        return blogs;
+    public Collection<BlogPost> getBlogPosts() {
+        return blogPosts;
 
     }
 

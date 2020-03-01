@@ -10,13 +10,13 @@ public class GenreController {
 
     private GenreStorage genreStorage;
 
-    public GenreController(GenreStorage genreStorage, AuthorStorage, BlogStorage blogStorage){
+    public GenreController(GenreStorage genreStorage, AuthorStorage authorStorage, BlogStorage blogStorage){
         this.genreStorage = genreStorage;
     }
 
     @RequestMapping({"/genres","/",""})
     public String displayGenres(Model model){
-        model.addAttribute("genres" genreStorage.findAllGenres());
+        model.addAttribute("genres", genreStorage.findAllGenres());
         return "genres-view";
     }
 }

@@ -15,7 +15,7 @@ public class Author {
     private String firstName;
     private String lastName;
     @ManyToMany(mappedBy = "authors")
-    private Collection<Blog> blogs;
+    private Collection<BlogPost> blogPosts;
 
     public Author(){
 
@@ -39,7 +39,7 @@ public class Author {
         return lastName;
     }
 
-    public Collection<Blog> getBlogs() {
-        return blogs;
+    public Collection<BlogPost> getBlogPosts() {
+        return blogPosts;
     }
 }

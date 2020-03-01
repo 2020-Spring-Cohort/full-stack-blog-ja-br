@@ -5,8 +5,7 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-public class Blog {
-    @Lob
+public class BlogPost {
     @Id
     @GeneratedValue
     private Long id;
@@ -14,15 +13,16 @@ public class Blog {
     private String blogText;
     @ManyToMany
     private Collection<Author> authors;
-    @ManyToMany
-    private Set<Tag> tags;
     @ManyToOne
     private Genre genre;
+    @ManyToMany
+    private Set<Tag> tags;
 
 
-    public Blog(){};
 
-    public Blog(String title, String blogText, Genre genre, Author... authors){
+    public BlogPost(){};
+
+    public BlogPost(String title, String blogText, Genre genre, Author... authors){
         this.title = title;
         this.blogText = blogText;
         this.authors = new ArrayList<>(Arrays.asList(authors));
@@ -50,9 +50,13 @@ public class Blog {
         return tags;
     }
 
+    public Collection<Author> getAuthors() {
+        return authors;
+    }
+
     @Override
     public String toString() {
-        return "Blog{" +
+        return "BlogPost{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", blogText='" + blogText + '\'' +
@@ -62,11 +66,11 @@ public class Blog {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Blog)) return false;
-        Blog blog = (Blog) o;
-        return Objects.equals(id, blog.id) &&
-                Objects.equals(genre, blog.genre) &&
-                Objects.equals(title, blog.title);
+        if (!(o instanceof BlogPost)) return false;
+        BlogPost blogPost = (BlogPost) o;
+        return Objects.equals(id, blogPost.id) &&
+                Objects.equals(genre, blogPost.genre) &&
+                Objects.equals(title, blogPost.title);
     }
 
     @Override

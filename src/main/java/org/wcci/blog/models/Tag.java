@@ -17,13 +17,13 @@ public class Tag {
     private String tagName;
 
     @ManyToMany(mappedBy = "tags")
-    private Collection<Blog> blogs;
+    private Collection<BlogPost> blogPosts;
 
     public Tag(){};
 
     public Tag(String tagName) {
         this.tagName = tagName;
-        blogs = new ArrayList<>();
+        blogPosts = new ArrayList<>();
     }
 
     public Long getId() {
@@ -41,11 +41,11 @@ public class Tag {
         Tag tag = (Tag) o;
         return Objects.equals(Id, tag.Id) &&
                 Objects.equals(tagName, tag.tagName) &&
-                Objects.equals(blogs, tag.blogs);
+                Objects.equals(blogPosts, tag.blogPosts);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(Id, tagName, blogs);
+        return Objects.hash(Id, tagName, blogPosts);
     }
 }

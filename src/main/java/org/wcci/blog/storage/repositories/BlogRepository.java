@@ -1,11 +1,9 @@
 package org.wcci.blog.storage.repositories;
 
 import org.springframework.data.repository.CrudRepository;
-import org.wcci.blog.models.Blog;
+import org.wcci.blog.models.BlogPost;
 
-import java.util.Optional;
-
-public interface BlogRepository extends CrudRepository<Blog,Long> {
+public interface BlogRepository extends CrudRepository<BlogPost,Long> {
 
 
 

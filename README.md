@@ -13,7 +13,7 @@ Build a dynamic web application with a MVC architecture.
 - Make effective use of git and GitHub.
   - Make frequent commits.
   - Utilize feature branching.
-- Working Software based on the Module 3 Mastery guideline at [Module 3 Mastery](https://wecancodeit-materials.netlify.com/exercises/mastery/blog-ssr/) 
+- Working Software based on the Module 3 Mastery guideline at [Module 3 Mastery](https://wecancodeit-materials.netlify.com/exercises/mastery/blogPost-ssr/) 
   - We are looking for an web application that utilizes a MVC architecture using spring boot.  
   - We need to see dynamic content being rendered and the ability to add content to the application through an HTML form.
   - Upon submission we should have an application that starts and passes all tests in the test folder.

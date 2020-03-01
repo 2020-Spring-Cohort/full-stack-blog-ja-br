@@ -1,9 +1,9 @@
 package org.wcci.blog.storage;
 
-import org.wcci.blog.models.Blog;
+import org.wcci.blog.models.BlogPost;
 
 public interface BlogStorage {
-    Blog findBlogById(long id);
+    BlogPost findBlogById(long id);
 
-    void store(Blog blogToStore);
+    void store(BlogPost blogPostToStore);
 }

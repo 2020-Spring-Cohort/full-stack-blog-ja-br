@@ -1,13 +1,12 @@
 package org.wcci.blog.integration;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.annotation.DirtiesContext;
 import org.wcci.blog.models.Author;
-import org.wcci.blog.models.Blog;
+import org.wcci.blog.models.BlogPost;
 import org.wcci.blog.models.Genre;
 import org.wcci.blog.storage.repositories.AuthorRepository;
 import org.wcci.blog.storage.repositories.BlogRepository;
@@ -37,17 +36,18 @@ public class JpaWiringTest {
     public void genreShouldHaveAListOfBlogs(){
         Genre testGenre = new Genre("Test Genre");
         Author testAuthor = new Author("John", "Smith");
-        Blog testBlog = new Blog("Title", "Blog Text Goes Here",testGenre, testAuthor);
+        BlogPost testBlogPost = new BlogPost("Title", "BlogPost Text Goes Here",testGenre, testAuthor);
         genreRepo.save(testGenre);
-        blogRepo.save(testBlog);
+        blogRepo.save(testBlogPost);
+        authorRepo.save(testAuthor);
 
         entityManager.flush();
         entityManager.clear();
         Optional<Genre> retrievedGenreOptional = genreRepo.findById(testGenre.getId());
         Genre retrievedGenre = retrievedGenreOptional.get();
-        Blog retrievedBlog = blogRepo.findById(testBlog.getId()).get();
+        BlogPost retrievedBlogPost = blogRepo.findById(testBlogPost.getId()).get();
 
-        assertThat(retrievedGenre.getBlogs()).contains(testBlog);
+        assertThat(retrievedGenre.getBlogPosts()).contains(testBlogPost);
 
 
 

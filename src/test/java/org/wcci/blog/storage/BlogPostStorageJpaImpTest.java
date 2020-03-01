@@ -2,41 +2,39 @@ package org.wcci.blog.storage;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.wcci.blog.models.Blog;
+import org.wcci.blog.models.BlogPost;
 import org.wcci.blog.models.Genre;
 //import org.wcci.blog.models.Tag;
 import org.wcci.blog.storage.repositories.BlogRepository;
-import org.wcci.blog.storage.BlogStorage;
-import org.wcci.blog.storage.BlogStorageJpaImp;
 
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
-public class BlogStorageJpaImpTest {
+public class BlogPostStorageJpaImpTest {
     private BlogRepository blogRepo;
     private BlogStorage underTest;
-    private Blog testBlog;
+    private BlogPost testBlogPost;
 
     @BeforeEach
     void setUp(){
         blogRepo = mock(BlogRepository.class);
         underTest = new BlogStorageJpaImp(blogRepo);
         Genre testGenre = new Genre("Test Genre");
-        testBlog = new Blog();
+        testBlogPost = new BlogPost();
     }
 
     @Test
     public void shouldFindBlogById(){
-        when(blogRepo.findById(1L)).thenReturn(Optional.of(testBlog));
-        Blog retrievedBlog = underTest.findBlogById(1L);
-        assertThat(retrievedBlog).isEqualTo(testBlog);
+        when(blogRepo.findById(1L)).thenReturn(Optional.of(testBlogPost));
+        BlogPost retrievedBlogPost = underTest.findBlogById(1L);
+        assertThat(retrievedBlogPost).isEqualTo(testBlogPost);
     }
 
     @Test
     public void shouldStoreBlog(){
-        underTest.store(testBlog);
-        verify(blogRepo).save(testBlog);
+        underTest.store(testBlogPost);
+        verify(blogRepo).save(testBlogPost);
     }
 }
