@@ -11,23 +11,23 @@ public class BlogPost {
     private Long id;
     private String title;
     private String blogText;
-    @ManyToMany
-    private Collection<Author> authors;
+    @ManyToOne
+    private Author author;
     @ManyToOne
     private Genre genre;
     @ManyToMany
-    private Set<Tag> tags;
+    private Collection<Tag> tags;
 
 
 
     public BlogPost(){};
 
-    public BlogPost(String title, String blogText, Genre genre, Author... authors){
+    public BlogPost(String title, String blogText, Genre genre, Author author, Tag...  tags){
         this.title = title;
         this.blogText = blogText;
-        this.authors = new ArrayList<>(Arrays.asList(authors));
+        this.author = author;
         this.genre = genre;
-        this.tags = new HashSet<>();
+        this.tags = new ArrayList<>(Arrays.asList(tags));
     }
 
     public Long getId() {
@@ -50,8 +50,8 @@ public class BlogPost {
         return tags;
     }
 
-    public Collection<Author> getAuthors() {
-        return authors;
+    public Author getAuthor() {
+        return author;
     }
 
     @Override

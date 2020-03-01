@@ -1,10 +1,7 @@
 package org.wcci.blog.models;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
@@ -14,7 +11,7 @@ public class Author {
     private Long id;
     private String firstName;
     private String lastName;
-    @ManyToMany(mappedBy = "authors")
+    @OneToMany(mappedBy = "author")
     private Collection<BlogPost> blogPosts;
 
     public Author(){
