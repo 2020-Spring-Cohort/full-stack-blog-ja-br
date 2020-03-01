@@ -40,12 +40,11 @@ public class Tag {
         if (!(o instanceof Tag)) return false;
         Tag tag = (Tag) o;
         return Objects.equals(Id, tag.Id) &&
-                Objects.equals(tagName, tag.tagName) &&
-                Objects.equals(blogPosts, tag.blogPosts);
+                Objects.equals(tagName, tag.tagName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(Id, tagName, blogPosts);
+        return Objects.hash(Id, tagName);
     }
 }

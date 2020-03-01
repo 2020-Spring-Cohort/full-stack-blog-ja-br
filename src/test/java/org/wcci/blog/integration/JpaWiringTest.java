@@ -55,32 +55,55 @@ public class JpaWiringTest {
 
     }
 
+//    @Test
+//    public void blogsShouldBeAbleToHaveMultipleTags(){
+
+//        BlogPost testBlog = new BlogPost("Post1", "Buncha stuff goes here", testGenre, testAuthor1, testTag1, testTag2, testTag3);
+//
+//        authorRepo.save(testAuthor1);
+//        tagRepo.save(testTag1);
+//        tagRepo.save(testTag2);
+//        tagRepo.save(testTag3);
+//        genreRepo.save(testGenre);
+//        blogRepo.save(testBlog);
+//
+//        entityManager.flush();
+//        entityManager.clear();
+//
+//        BlogPost retrievedBlog = blogRepo.findById(testBlog.getId()).get();
+//        Tag retrievedTag1 = tagRepo.findTagByTagName(testTag1.getTagName()).get();
+//        Tag retrievedTag2 = tagRepo.findTagByTagName(testTag2.getTagName()).get();
+//        Tag retrievedTag3 = tagRepo.findTagByTagName(testTag3.getTagName()).get();
+//
+//        assertThat(retrievedBlog.getTags()).contains(retrievedTag1, retrievedTag2, retrievedTag3);
+//
+//    }
     @Test
-    public void blogsShouldBeAbleToHaveMultipleTags(){
-        Tag testTag1 = new Tag("lit");
-        Tag testTag2 = new Tag("fam");
-        Tag testTag3 = new Tag("buzz");
-        Author testAuthor1 = new Author("Tom", "Black");
-
-        Genre testGenre = new Genre("Basic");
-        BlogPost testBlog = new BlogPost("Post1", "Buncha stuff goes here", testGenre, testAuthor1, testTag1, testTag2, testTag3);
-
-        authorRepo.save(testAuthor1);
-        tagRepo.save(testTag1);
-        tagRepo.save(testTag2);
-        tagRepo.save(testTag3);
-        genreRepo.save(testGenre);
-        blogRepo.save(testBlog);
-
+    public void blogShouldHaveTags(){
+        Tag testTag1 = tagRepo.save(new Tag("lit"));
+        Tag testTag2 = tagRepo.save(new Tag("fam"));
+        Tag testTag3 = tagRepo.save(new Tag("buzz"));
+        Author testAuthor1 = authorRepo.save(new Author("Tom", "Black"));
+        Genre testGenre = genreRepo.save(new Genre("Basic"));
+        BlogPost testBlog1 = blogRepo.save(new BlogPost("Post1", "Buncha stuff goes here", testGenre, testAuthor1));
+        BlogPost testBlog2 = blogRepo.save(new BlogPost("Post2", "Buncha stuff goes here", testGenre, testAuthor1));
+        testBlog1.addTag(testTag1);
+        testBlog2.addTag(testTag2);
+        testBlog2.addTag(testTag3);
+        blogRepo.save(testBlog1);
+        blogRepo.save(testBlog2);
         entityManager.flush();
         entityManager.clear();
 
-        BlogPost retrievedBlog = blogRepo.findById(testBlog.getId()).get();
-        Tag retrievedTag1 = tagRepo.findTagByTagName(testTag1.getTagName()).get();
-        Tag retrievedTag2 = tagRepo.findTagByTagName(testTag2.getTagName()).get();
-        Tag retrievedTag3 = tagRepo.findTagByTagName(testTag3.getTagName()).get();
+        BlogPost retrievedBlog1 = blogRepo.findById(testBlog1.getId()).get();
+        BlogPost retrievedBlog2 = blogRepo.findById(testBlog2.getId()).get();
 
-        assertThat(retrievedBlog.getTags()).contains(retrievedTag1, retrievedTag2, retrievedTag3);
+        assertThat(retrievedBlog1.getTags()).contains(testTag1);
+        assertThat(retrievedBlog2.getTags()).contains(testTag2, testTag3);
+
+
+
+
 
     }
 

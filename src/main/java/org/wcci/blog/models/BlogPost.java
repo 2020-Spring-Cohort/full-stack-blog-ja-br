@@ -16,18 +16,18 @@ public class BlogPost {
     @ManyToOne
     private Genre genre;
     @ManyToMany
-    private Collection<Tag> tags;
+    private Set<Tag> tags;
 
 
 
     public BlogPost(){};
 
-    public BlogPost(String title, String blogText, Genre genre, Author author, Tag...  tags){
+    public BlogPost(String title, String blogText, Genre genre, Author author){
         this.title = title;
         this.blogText = blogText;
         this.author = author;
         this.genre = genre;
-        this.tags = new ArrayList<>(Arrays.asList(tags));
+        this.tags = new HashSet<>();
     }
 
     public Long getId() {
