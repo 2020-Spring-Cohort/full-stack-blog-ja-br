@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>MyPlace</title>
+</head>
+
+<body>
+  <div class="grid-container">
+    <header>
+      <nav>
+        <ul class="navbar">
+          <li><a href="../index.html">Home</a> </li>
+          <li><span>|</span></li>
+          <li><a href="../blogs">Blogs</a></li>
+          <li><span>|</span></li>
+          <li><a href="../authors">Authors</a></li>
+          <li><span>|</span></li>
+          <li><a href="../genres">Genres</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="grid-col-left col">
+      <section id="authors-list">
+        <h2>All Authors</h2>
+        <div class="content" th:each="author : ${authors}">
+          <div class="content-title"><a th:href="@{'/authors/' + ${author.id}}" th:text="${author.fullName}"></a>
+          </div>
+          <div class="content-area" th:text="'Number of posts: ' + ${author.blogPosts.size()}">
+
+          </div>
+        </div><!-- CONTENT -->
+    </div><!-- GRID COL LEFT -->
+
+
+
+    <div class="grid-col-right">
+      <section id="add-author-form">
+        <h2 class="author-title">Add a New Author</h2>
+        <form method="POST" th:action="'/add-author'">
+          <input name="authorFirstName" type="text" placeholder="First Name">
+          <input name="authorLastName" type="text" placeholder="Last Name">
+          <button type="submit">Add Author</button>
+        </form>
+      </section>
+    </div> <!-- GRID-COL-RIGHT -->
+
+  </div>
+</body>
+
+</html>

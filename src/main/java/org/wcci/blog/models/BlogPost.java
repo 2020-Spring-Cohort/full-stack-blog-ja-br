@@ -10,6 +10,7 @@ public class BlogPost {
     @GeneratedValue
     private Long id;
     private String title;
+    @Lob
     private String blogText;
     @ManyToOne
     private Author author;

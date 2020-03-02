@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>MyPlace</title>
 </head>
-<body>
 
+<body>
+    <div class="grid-container">
+        <header>
+            <nav>
+                <ul class="navbar">
+                    <li><a href="../index.html">Home</a> </li>
+                    <li><span>|</span></li>
+                    <li><a href="../blogs">Blogs</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="../authors">Authors</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="../genres">Genres</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="grid-col-left col">
+            <section id="genres-list">
+                <h2>All Genres</h2>
+                <div class="content" th:each="genre : ${genres}">
+                    <div class="content-title"><a th:href="@{'/genres/' + ${genre.name}}" th:text="${genre.name}"></a>
+                    </div>
+                    <div class="content-area" th:text="'Number of posts: ' + ${genre.blogPosts.size()}">
+
+                    </div>
+                </div><!-- CONTENT -->
+        </div><!-- GRID COL LEFT -->
+
+
+
+        <div class="grid-col-right">
+            <section id="add-genre-form">
+                <h2 class="genre-title">Add a New Genre</h2>
+                <form method="POST" th:action="'/add-genre'">
+                    <input name="name" type="text" placeholder="Name of Name">
+                    <button type="submit">Add Genre</button>
+                </form>
+            </section>
+        </div> <!-- GRID-COL-RIGHT -->
+
+    </div>
 </body>
+
 </html>

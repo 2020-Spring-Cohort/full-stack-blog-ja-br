@@ -10,4 +10,6 @@ public interface TagStorage {
     Tag findTagByTagName(String tagNameToFind);
 
     Collection<Tag> findAllTags();
+
+    Tag findTagById(Long id);
 }

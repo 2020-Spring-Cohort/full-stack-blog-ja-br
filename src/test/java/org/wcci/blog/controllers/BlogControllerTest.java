@@ -9,7 +9,10 @@ import org.springframework.ui.Model;
 import org.wcci.blog.models.Author;
 import org.wcci.blog.models.BlogPost;
 import org.wcci.blog.models.Genre;
+import org.wcci.blog.storage.AuthorStorage;
 import org.wcci.blog.storage.BlogStorage;
+import org.wcci.blog.storage.GenreStorage;
+import org.wcci.blog.storage.repositories.GenreRepository;
 import org.wcci.blog.storage.repositories.TagRepository;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -22,12 +25,15 @@ public class BlogControllerTest {
     private BlogStorage blogStorage;
     private BlogPost testBlog;
     private TagRepository tagRepo;
+    private AuthorStorage authorStorage;
+    private GenreStorage genreStorage;
+    private GenreRepository genreRepo;
 
     @BeforeEach
     void setUp(){
         blogStorage = mock(BlogStorage.class);
         tagRepo = mock(TagRepository.class);
-        underTest = new BlogController(blogStorage, tagRepo);
+        underTest = new BlogController(blogStorage, tagRepo, authorStorage, genreStorage, genreRepo);
         model = mock(Model.class);
         Genre testGenre = new Genre("Stuff");
         Author testAuthor = new Author("Tom", "Black");

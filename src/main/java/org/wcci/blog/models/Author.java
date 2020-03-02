@@ -12,6 +12,7 @@ public class Author {
     private Long id;
     private String firstName;
     private String lastName;
+    private String fullName;
     @OneToMany(mappedBy = "author")
     private Collection<BlogPost> blogPosts;
 
@@ -22,6 +23,7 @@ public class Author {
     public Author(String firstName, String lastName){
         this.firstName = firstName;
         this.lastName = lastName;
+        this.fullName = firstName + " " + lastName;
 
     }
 
@@ -35,6 +37,10 @@ public class Author {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public String getFullName(){
+        return fullName;
     }
 
     public Collection<BlogPost> getBlogPosts() {

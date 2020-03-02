@@ -37,29 +37,30 @@
                 </div><!-- CONTENT -->
         </div><!-- GRID COL LEFT -->
 
-
         <div class="grid-col-right">
-            <section id="add-blog-form">
-                <h2 class="blog-title">Add a New Blog Post</h2>
-                <form method="POST" action="/add-blog">
-                    <input name="blogTitle" type="text" placeholder="Title">
-                    <textarea name="blogBody" placeholder="Type your message..."></textarea>
-                    <input type="text" name="genre" placeholder="genre">
-                    <!-- <select name="genre" th:field="${genres}">
-                        <option value="" selected disabled>-- Select Genre --</option>
-                        <option th:each="genre : ${genres}" th:value="${genre}" th:text="${genre.name}">
-                        </option>
-                    </select>
 
-                    <select name="author" th:field="*{authors}">
-                        <option th:each="author : ${authors}" th:value="${author}" th:text="${author.fullName}">
-                        </option>
-                    </select> -->
-
-
-
-                    <button type="submit">Add Blog Post</button>
-                </form>
+            <section id="blogpost">
+                <h2 class="blogPost-title" th:text="${blog.title}">Title</h2>
+                <div class="content">
+                    <p class="blogPost-body" th:text="${blog.blogText}"></p>
+                </div><!-- CONTENT -->
+                <div class="blogpost-footer">
+                    <div class="blogPost-info">
+                        <ul>
+                            <li th:text="${blog.author.fullName}"></li>
+                            <li>Date</li>
+                            <li th:text="${blog.genre.name}"></li>
+                        </ul>
+                    </div>
+                    <div class="blogPost-tags">
+                        <ul>
+                            <li>#tag1</li>
+                            <li>#tag2</li>
+                            <li>#tag3</li>
+                            <li>#tag4</li>
+                        </ul>
+                    </div>
+                </div>
             </section>
         </div> <!-- GRID-COL-RIGHT -->
 

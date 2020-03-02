@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 import org.wcci.blog.models.BlogPost;
 import org.wcci.blog.storage.repositories.BlogRepository;
 
+import java.util.Collection;
+
 @Service
 public class BlogStorageJpaImp implements BlogStorage {
     private BlogRepository blogRepo;
@@ -20,6 +22,11 @@ public class BlogStorageJpaImp implements BlogStorage {
     @Override
     public void store(BlogPost blogPostToStore){
         blogRepo.save(blogPostToStore);
+    }
+
+    @Override
+    public Collection<BlogPost> findAllBlogs(){
+        return (Collection<BlogPost>) blogRepo.findAll();
     }
 
 }

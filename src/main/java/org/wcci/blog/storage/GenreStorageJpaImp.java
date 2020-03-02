@@ -37,7 +37,6 @@ public class GenreStorageJpaImp implements GenreStorage{
         }
         return retrievedGenre;
 
-//        return genreRepo.findGenreByName(genreToFind).get();
     }
 
 }
