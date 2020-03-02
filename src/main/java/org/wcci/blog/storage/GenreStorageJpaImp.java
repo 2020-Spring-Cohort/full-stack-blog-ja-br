@@ -6,6 +6,7 @@ import org.wcci.blog.models.Genre;
 import org.wcci.blog.storage.repositories.GenreRepository;
 
 import java.util.Collection;
+
 @Service
 public class GenreStorageJpaImp implements GenreStorage{
 

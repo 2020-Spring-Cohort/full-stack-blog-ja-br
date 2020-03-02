@@ -1,8 +1,10 @@
 package org.wcci.blog.storage;
 
+import org.springframework.stereotype.Service;
 import org.wcci.blog.models.Author;
 import org.wcci.blog.storage.repositories.AuthorRepository;
 
+@Service
 public class AuthorStorageJpaImp implements AuthorStorage {
 
     private final AuthorRepository authorRepository;

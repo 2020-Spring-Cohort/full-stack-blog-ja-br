@@ -33,14 +33,14 @@ public class WebLayerTest {
     private MockMvc mockMvc;
 
 
-    @Test
-    public void genresShouldBeOKAndReturnTheGenresViewWithGenresModelAttribute() throws Exception {
-        mockMvc.perform(get("/genres"))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(view().name("genres-view"))
-                .andExpect(model().attributeExists("genres"));
-    }
+//    @Test
+//    public void genresShouldBeOKAndReturnTheGenresViewWithGenresModelAttribute() throws Exception {
+//        mockMvc.perform(get("/genres"))
+//                .andDo(print())
+//                .andExpect(status().isOk())
+//                .andExpect(view().name("genres-view"))
+//                .andExpect(model().attributeExists("genres"));
+//    }
 
 //    @Test
 //    public void shouldReceiveOKFromSingleCampusEndpoint() throws Exception {
