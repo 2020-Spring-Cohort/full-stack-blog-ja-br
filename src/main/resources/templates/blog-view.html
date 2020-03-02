@@ -35,6 +35,8 @@
                     <div class="content-area" th:text="${blogpost.author.fullName + ' (' + blogpost.genre.name + ')'}">
                     </div>
                 </div><!-- CONTENT -->
+
+            </section>
         </div><!-- GRID COL LEFT -->
 
         <div class="grid-col-right">
@@ -52,15 +54,11 @@
                             <li th:text="${blog.genre.name}"></li>
                         </ul>
                     </div>
-                    <div class="blogPost-tags">
-                        <ul>
-                            <li>#tag1</li>
-                            <li>#tag2</li>
-                            <li>#tag3</li>
-                            <li>#tag4</li>
-                        </ul>
-                    </div>
+
                 </div>
+                <br>
+                <br>
+                <a th:href="@{/blogs}" class="link-back">&#8592;Back to Add Blog Post</a>
             </section>
         </div> <!-- GRID-COL-RIGHT -->
 

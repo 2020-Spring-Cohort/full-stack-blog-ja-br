@@ -44,8 +44,11 @@
         <div class="content" th:each="blog : ${genre.blogPosts}">
 
           <a th:href="@{'/blogs/' + ${blog.id}}" th:text="${blog.title}"></a>
-        </div><!-- CONTENT -->
 
+        </div><!-- CONTENT -->
+        <br>
+        <br>
+        <a th:href="@{/genres}" class="link-back">&#8592;Back to Add Genre</a>
       </section>
     </div> <!-- GRID-COL-RIGHT -->
 
